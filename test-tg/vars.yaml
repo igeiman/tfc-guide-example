@@ -1,0 +1,33 @@
+common:
+  MainAccountID: &MainID "390148573654"
+  MemberAccounts:
+    - &DevID "390148573654"
+    - &StagingID "390148573654"
+
+  labels:
+    owner: &ownerentity opsguru # low case
+    developer: &deventity irina.geiman@opsguru.io # low case
+
+  default_region: &DefReg us-west-1
+  RoleMaxSessionDuration: &RoleTTL "7200"
+  
+
+Environments:
+  main:
+    AccountID: *MainID
+    Region: *DefReg
+
+  dev:
+    AccountID: *DevID
+    Region: *DefReg
+    Resources:
+      01-dynamodb:
+        aws_region: *DefReg
+        db_table_name: "terraform-tg-learn"
+        users: ["user1", "user2"]
+        db_read_capacity: 1
+        db_write_capacity: 1
+        tags:
+          Environment: shared
+          Owner: *ownerentity
+          Developer: *deventity

@@ -34,5 +34,7 @@ playground/
 workspace-venv/
 credentials*.json
 credentials*.txt
+ *.auto.tfvars
+ .terragrunt-cache*
 
 
