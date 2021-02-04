@@ -36,5 +36,6 @@ credentials*.json
 credentials*.txt
  *.auto.tfvars
  .terragrunt-cache*
+ .DS_Store
 
 

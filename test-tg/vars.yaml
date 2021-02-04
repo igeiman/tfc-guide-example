@@ -24,10 +24,10 @@ Environments:
       01-dynamodb:
         aws_region: *DefReg
         db_table_name: "terraform-tg-learn"
-        users: ["user1", "user2"]
+        user: "user1"
         db_read_capacity: 1
         db_write_capacity: 1
         tags:
-          Environment: shared
+          Environment: dev
           Owner: *ownerentity
           Developer: *deventity

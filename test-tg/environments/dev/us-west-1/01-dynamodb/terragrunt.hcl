@@ -13,12 +13,13 @@ include {
   path = "${find_in_parent_folders()}"
 }
 
+# "${local.common_vars["Environments"]["${local.environment}"]["Resources"]["${local.resource}"]["db_table_name"]}"  "${local.resource_vars["users"]}"
 
 generate "tfvars" {
   path              = "terragrunt.auto.tfvars"
   if_exists         = "overwrite"
   disable_signature = true
   contents          = <<-EOF
-users = ["user1", "user3"]
+users =  ["${local.resource_vars["user"]}"]
 EOF
 }
